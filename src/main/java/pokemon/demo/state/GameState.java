@@ -1,6 +1,8 @@
 package pokemon.demo.state;
 
-public interface GameState {
+public enum GameState {
 
-    void run();
+    BEGIN,
+    IN_GAME,
+    END
 }
