@@ -1,4 +1,4 @@
-package pokemon.demo.team;
+package pokemon.demo.player;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +8,7 @@ import pokemon.demo.pokemon.Pokemon;
 @Getter
 @Setter
 @Accessors(chain = true)
-public class Team {
+public class Player {
 
     private Integer id;
 

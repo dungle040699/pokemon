@@ -1,15 +1,25 @@
 package pokemon.demo.field;
 
-import pokemon.demo.state.GameState;
-import pokemon.demo.team.Team;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
+import pokemon.demo.player.Player;
+import pokemon.demo.state.State;
 
+@Getter
+@Setter
+@Accessors(chain = true)
 public class Field {
 
-    private Team red;
+    private Player red;
 
-    private Team blue;
+    private Player blue;
 
-    private GameState gameState;
+    private State state;
 
-    private Boolean isGameOver;
+    public Field() {
+        this.red = new Player();
+        this.blue = new Player();
+        this.state = State.BEGIN;
+    }
 }

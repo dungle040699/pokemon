@@ -13,5 +13,7 @@ public class Pokemon {
 
     private String name;
 
-    private BaseStat baseStat;
+    private Integer hp;
+
+    private Integer damage;
 }

@@ -1,6 +1,6 @@
 package pokemon.demo.state;
 
-public enum GameState {
+public enum State {
 
     BEGIN,
     IN_GAME,
