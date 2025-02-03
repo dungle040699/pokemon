@@ -1,12 +1,13 @@
 package pokemon.demo;
 
-import pokemon.demo.game.Game;
+
+import pokemon.demo.caller.Caller;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        var game = new Game();
-        game.playGame();
+       var caller = new Caller();
+       caller.playGame();
     }
 }

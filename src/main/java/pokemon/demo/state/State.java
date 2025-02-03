@@ -2,7 +2,7 @@ package pokemon.demo.state;
 
 public enum State {
 
-    BEGIN,
+    BAN_PICK,
     IN_GAME,
-    END
+    STOP
 }
