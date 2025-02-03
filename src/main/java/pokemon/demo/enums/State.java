@@ -1,4 +1,4 @@
-package pokemon.demo.state;
+package pokemon.demo.enums;
 
 public enum State {
 

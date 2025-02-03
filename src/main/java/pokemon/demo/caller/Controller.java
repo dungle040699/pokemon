@@ -1,21 +1,21 @@
 package pokemon.demo.caller;
 
-import pokemon.demo.game.Gam;
+import pokemon.demo.game.Game;
 import pokemon.demo.player.Player;
-import pokemon.demo.state.State;
+import pokemon.demo.enums.State;
 
 import java.util.Scanner;
 
-public class Caller {
+public class Controller {
 
     private final Scanner scanner;
-    private final Gam gam;
+    private final Game game;
     private Player player;
     private Player machine;
 
-    public Caller() {
+    public Controller() {
         this.scanner = new Scanner(System.in);
-        this.gam = new Gam();
+        this.game = new Game();
     }
 
     public void playGame() {
@@ -27,19 +27,25 @@ public class Caller {
 
         var choice = scanner.nextInt();
 
-        while (gam.getState() != State.STOP) {
+        while (game.getState() != State.STOP) {
 
-            if (gam.getState() == State.BAN_PICK) {
-                player = gam.generateRedPlayer(choice);
-                machine = gam.generateBluePlayer();
+            if (game.getState() == State.BAN_PICK) {
+                player = game.generateRedPlayer(choice);
+                machine = game.generateBluePlayer();
                 continue;
             }
-            if (gam.getState() == State.IN_GAME) {
+
+            if (game.getState() == State.IN_GAME) {
                 System.out.println("*********************************");
                 System.out.println("Press A to attack");
                 var attack = scanner.next();
-                gam.playGame(player, machine, attack);
+                game.playGame(player, machine, attack);
             }
         }
+    }
+
+    private void gameMode() {
+
+        //TODO
     }
 }
