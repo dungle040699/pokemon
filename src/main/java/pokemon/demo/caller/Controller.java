@@ -1,8 +1,7 @@
 package pokemon.demo.caller;
 
 import pokemon.demo.game.Game;
-import pokemon.demo.player.Player;
-import pokemon.demo.enums.State;
+import pokemon.demo.mode.factory.GameModeFactory;
 
 import java.util.Scanner;
 
@@ -10,8 +9,7 @@ public class Controller {
 
     private final Scanner scanner;
     private final Game game;
-    private Player player;
-    private Player machine;
+    private Integer mode = 1;
 
     public Controller() {
         this.scanner = new Scanner(System.in);
@@ -21,31 +19,14 @@ public class Controller {
     public void playGame() {
 
         System.out.println("""
-                Welcome. Please choose a Pokémon for Red team:\s
-                (1) for Pikachu.\s
-                (2) for Bulbasaur.""");
+                Choose the game mode:\s
+                (1) Online.\s
+                (2) Offline.""");
+        mode = scanner.nextInt();
 
-        var choice = scanner.nextInt();
-
-        while (game.getState() != State.STOP) {
-
-            if (game.getState() == State.BAN_PICK) {
-                player = game.generateRedPlayer(choice);
-                machine = game.generateBluePlayer();
-                continue;
-            }
-
-            if (game.getState() == State.IN_GAME) {
-                System.out.println("*********************************");
-                System.out.println("Press A to attack");
-                var attack = scanner.next();
-                game.playGame(player, machine, attack);
-            }
-        }
-    }
-
-    private void gameMode() {
-
-        //TODO
+        var gameMode = GameModeFactory.createGameMode(mode);
+        System.out.println("*********************************");
+        System.out.println("Mode game is: " + gameMode.getClass().getName());
+        gameMode.playGame(scanner, game);
     }
 }

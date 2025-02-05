@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-       var caller = new Controller();
-       caller.playGame();
+       var controller = new Controller();
+       controller.playGame();
     }
 }
