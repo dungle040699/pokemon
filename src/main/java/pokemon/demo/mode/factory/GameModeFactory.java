@@ -1,18 +1,23 @@
 package pokemon.demo.mode.factory;
 
-import org.jetbrains.annotations.NotNull;
 import pokemon.demo.mode.GameMode;
-import pokemon.demo.mode.OfflineGameMode;
 
-public class GameModeFactory {
+public abstract class GameModeFactory {
 
-    @NotNull
-    public static GameMode createGameMode(@NotNull Integer mode) {
+    public abstract GameMode createGameMode();
 
-        return switch (mode) {
-            case 1 -> new OfflineGameMode();
-            case 2 -> new OnlineGameMode();
-            default -> throw new RuntimeException();
-        };
+    public GameMode getGameMode() {
+
+        return createGameMode();
     }
+
+//    @NotNull
+//    public static GameMode createGameMode(@NotNull Integer mode) {
+//
+//        return switch (mode) {
+//            case 1 -> new OfflineGameMode();
+//            case 2 -> new OnlineGameMode();
+//            default -> throw new RuntimeException();
+//        };
+//    }
 }

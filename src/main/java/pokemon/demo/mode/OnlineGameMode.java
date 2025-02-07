@@ -1,7 +1,6 @@
-package pokemon.demo.mode.factory;
+package pokemon.demo.mode;
 
 import pokemon.demo.game.Game;
-import pokemon.demo.mode.GameMode;
 
 import java.util.Scanner;
 
