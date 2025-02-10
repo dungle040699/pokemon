@@ -4,7 +4,9 @@ import pokemon.demo.mode.GameMode;
 
 public abstract class GameModeFactory {
 
-    public abstract GameMode createGameMode();
+    public static GameMode createGameMode() {
+        return null;
+    }
 
     public GameMode getGameMode() {
 
