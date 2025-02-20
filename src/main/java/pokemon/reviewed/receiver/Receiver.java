@@ -1,6 +1,8 @@
 package pokemon.reviewed.receiver;
 
+import pokemon.reviewed.render.Render;
+
 public interface Receiver {
 
-    String receive();
+    Render receive();
 }

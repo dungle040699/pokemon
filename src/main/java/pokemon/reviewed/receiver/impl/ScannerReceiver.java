@@ -5,6 +5,7 @@ import pokemon.reviewed.controller.Controller;
 import pokemon.reviewed.game.Game;
 import pokemon.reviewed.receiver.Receiver;
 import pokemon.reviewed.mapper.Mapper;
+import pokemon.reviewed.render.Render;
 
 import java.util.Scanner;
 
@@ -20,10 +21,10 @@ public class ScannerReceiver implements Receiver {
     private final Controller controller;
 
     @Override
-    public String receive() {
+    public Render receive() {
 
         var input = scanner.next();
         var gameInput = mapper.toGameInput(input);
-       return controller.playGame(gameInput, game);
+        return controller.playGame(gameInput, game);
     }
 }

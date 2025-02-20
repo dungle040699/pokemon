@@ -4,6 +4,7 @@ import pokemon.reviewed.controller.Controller;
 import pokemon.reviewed.game.Game;
 import pokemon.reviewed.input.GameInput;
 import pokemon.reviewed.processor.Processor;
+import pokemon.reviewed.render.Render;
 import pokemon.reviewed.state.GameState;
 
 import java.util.List;
@@ -17,15 +18,17 @@ public class ScannerController implements Controller {
 
     public ScannerController(List<Processor> processors) {
 
-        this.map = processors.stream()
-                .collect(Collectors.toMap(Processor::supportedGameState, Function.identity()));
+        this.map = processors.stream().collect(Collectors.toMap(
+                Processor::supportedGameState,
+                Function.identity())
+        );
     }
+
     @Override
-    public String playGame(GameInput input, Game game) {
+    public Render playGame(GameInput input, Game game) {
 
         var state = game.getGameState();
         var processor = map.get(state);
-
-        return processor.processGameInput(input);
+        return processor.processGameInput(input, game);
     }
 }
