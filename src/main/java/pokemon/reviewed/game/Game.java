@@ -1,11 +1,11 @@
-package pokemon.demo.game;
+package pokemon.reviewed.game;
 
 import lombok.Getter;
 import lombok.Setter;
-import pokemon.demo.state.GameState;
+import pokemon.reviewed.state.GameState;
 
-@Setter
 @Getter
+@Setter
 public class Game {
 
     private GameState gameState = GameState.IN_GAME;
