@@ -8,5 +8,5 @@ import pokemon.reviewed.state.GameState;
 @Setter
 public class Game {
 
-    private GameState gameState = GameState.IN_GAME;
+    private GameState gameState = GameState.INTRODUCTION;
 }

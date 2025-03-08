@@ -28,7 +28,9 @@ public class ScannerController implements Controller {
     public Render playGame(GameInput input, Game game) {
 
         var state = game.getGameState();
+
         var processor = map.get(state);
+
         return processor.processGameInput(input, game);
     }
 }

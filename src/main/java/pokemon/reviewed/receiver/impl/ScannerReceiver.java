@@ -24,7 +24,9 @@ public class ScannerReceiver implements Receiver {
     public Render receive() {
 
         var input = scanner.next();
+
         var gameInput = mapper.toGameInput(input);
+
         return controller.playGame(gameInput, game);
     }
 }

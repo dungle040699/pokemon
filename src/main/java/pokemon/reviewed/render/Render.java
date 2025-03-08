@@ -13,4 +13,6 @@ public class Render {
     private GameState gameState;
 
     private String input;
+
+    private String message;
 }
