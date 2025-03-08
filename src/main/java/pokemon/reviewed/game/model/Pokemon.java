@@ -3,12 +3,17 @@ package pokemon.reviewed.game.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import pokemon.reviewed.game.state.GameState;
 
 @Getter
 @Setter
 @Accessors(chain = true)
-public class Game {
+public class Pokemon {
 
-    private GameState gameState = GameState.BAN_PICK;
+    private String id;
+
+    private String name;
+
+    private Integer hp;
+
+    private Integer attack;
 }

@@ -4,8 +4,10 @@ import pokemon.reviewed.controller.mapper.ControllerMapper;
 import pokemon.reviewed.controller.receiver.Receiver;
 import pokemon.reviewed.game.handler.GameInputHandler;
 import pokemon.reviewed.game.model.Game;
+import pokemon.reviewed.game.state.GameState;
 import pokemon.reviewed.render.model.Render;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class ScannerReceiver implements Receiver {
@@ -26,6 +28,11 @@ public class ScannerReceiver implements Receiver {
 
         var gameInput = controllerMapper.toGameInput(input);
 
-        return gameInputHandler.handleGameInput(gameInput, game);
+        var render = gameInputHandler.handleGameInput(gameInput, game);
+
+        return Optional.ofNullable(game.getGameState())
+                .filter(gameState -> gameState != GameState.END_GAME)
+                .map(_ -> receiveInput(gameInputHandler, game))
+                .orElse(render);
     }
 }

@@ -3,6 +3,7 @@ package pokemon.reviewed;
 import lombok.extern.slf4j.Slf4j;
 import pokemon.reviewed.controller.mapper.impl.ScannerControllerMapper;
 import pokemon.reviewed.controller.receiver.impl.ScannerReceiver;
+import pokemon.reviewed.game.factory.impl.OfflinePokemonFactory;
 import pokemon.reviewed.game.handler.impl.ScannerGameInputHandler;
 import pokemon.reviewed.game.model.Game;
 import pokemon.reviewed.game.processor.impl.*;
@@ -17,9 +18,11 @@ public class Main {
     public static void main(String[] args) {
 
         // game
-        var gameProcessors = List.of(new BanPickProcessor(), new InGameProcessor(), new InputWaitingProcessor(),
-                new ProcessingProcessor(), new RenderingProcessor(), new EndgameProcessor());
-        var game = new Game().setGameState(GameState.IN_GAME);
+        var pokemonFactory = new OfflinePokemonFactory();
+        var gameProcessors = List.of(new BanPickProcessor(pokemonFactory), new InGameProcessor(),
+                new InputWaitingProcessor(), new ProcessingProcessor(), new RenderingProcessor(), new EndgameProcessor());
+
+        var game = new Game().setGameState(GameState.BAN_PICK);
         var gameInputHandler = new ScannerGameInputHandler(gameProcessors);
 
         // controller

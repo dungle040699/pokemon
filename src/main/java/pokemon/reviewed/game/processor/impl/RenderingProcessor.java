@@ -17,6 +17,7 @@ public class RenderingProcessor implements GameProcessor {
     @Override
     public Render process(GameInput gameInput, Game game) {
 
+        game.setGameState(GameState.INPUT_WAITING);
         return null;
     }
 }

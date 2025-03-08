@@ -2,10 +2,14 @@ package pokemon.reviewed.game.state;
 
 public enum GameState {
 
+//    BAN_PICK,
+//    IN_GAME,
+//    END_GAME,
+//    RENDERING,
+//    INPUT_WAITING,
+//    PROCESSING
+
     BAN_PICK,
-    IN_GAME,
-    INPUT_WAITING,
-    PROCESSING,
-    RENDERING,
+    BATTLE,
     END_GAME
 }

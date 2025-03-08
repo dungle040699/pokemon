@@ -18,17 +18,17 @@ public class ScannerGameInputHandler implements GameInputHandler {
 
     public ScannerGameInputHandler(List<GameProcessor> processors) {
 
-        this.gameHandlerMap = processors.stream()
-                .collect(Collectors.toMap(
-                        GameProcessor::getSupportedGameState,
-                        Function.identity())
-                );
+        this.gameHandlerMap = processors.stream().collect(Collectors.toMap(
+                GameProcessor::getSupportedGameState,
+                Function.identity())
+        );
     }
 
     @Override
     public Render handleGameInput(GameInput gameInput, Game game) {
 
         var gameState = game.getGameState();
+
         var gameProcessor = gameHandlerMap.get(gameState);
 
         return gameProcessor.process(gameInput, game);
