@@ -27,10 +27,10 @@ public class BanPickProcessor implements GameProcessor {
     @Override
     public Render process(GameInput gameInput, Game game) {
 
-        game.setGameState(GameState.RENDERING);
+        game.setGameState(GameState.BATTLE);
 
         return new Render().setGame(game)
-                .setPokemons(pokemons)
+                .setPokemonList(pokemons)
                 .setMessage("It's in a Ban Pick GameState.");
     }
 }

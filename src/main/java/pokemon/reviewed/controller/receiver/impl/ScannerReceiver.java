@@ -32,7 +32,7 @@ public class ScannerReceiver implements Receiver {
 
         return Optional.ofNullable(game.getGameState())
                 .filter(gameState -> gameState != GameState.END_GAME)
-                .map(_ -> receiveInput(gameInputHandler, game))
+                .map(i -> receiveInput(gameInputHandler, game))
                 .orElse(render);
     }
 }

@@ -6,6 +6,7 @@ import pokemon.reviewed.controller.receiver.impl.ScannerReceiver;
 import pokemon.reviewed.game.factory.impl.OfflinePokemonFactory;
 import pokemon.reviewed.game.handler.impl.ScannerGameInputHandler;
 import pokemon.reviewed.game.model.Game;
+import pokemon.reviewed.game.processor.GameProcessor;
 import pokemon.reviewed.game.processor.impl.*;
 import pokemon.reviewed.game.state.GameState;
 
@@ -19,8 +20,7 @@ public class Main {
 
         // game
         var pokemonFactory = new OfflinePokemonFactory();
-        var gameProcessors = List.of(new BanPickProcessor(pokemonFactory), new InGameProcessor(),
-                new InputWaitingProcessor(), new ProcessingProcessor(), new RenderingProcessor(), new EndgameProcessor());
+        List<GameProcessor> gameProcessors = List.of(new BanPickProcessor(pokemonFactory));
 
         var game = new Game().setGameState(GameState.BAN_PICK);
         var gameInputHandler = new ScannerGameInputHandler(gameProcessors);

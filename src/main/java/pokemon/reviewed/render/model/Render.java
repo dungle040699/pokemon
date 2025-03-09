@@ -17,5 +17,5 @@ public class Render {
 
     private String message;
 
-    private List<Pokemon> pokemons;
+    private List<Pokemon> pokemonList;
 }
